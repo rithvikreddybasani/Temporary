@@ -1,3 +1,9 @@
-const arr = [8,1,2,3,4];
-arr.sort();
-console.log(arr);
+const arr = [8,1,2,1,3,4];
+
+const other = new Set(arr);
+console.log(other);
+
+
+
+
+
