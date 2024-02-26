@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+    <style>
+        .div {
+            display: flex;
+            gap: 20px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>TODO List</h1>
+    <h3>Items</h3>
+    <label for="input-type"></label>
+    <input type="text" id="input-type" placeholder="Add an item">
+    <button onclick="buttonClicked()">Add Item</button>
+
+    <script>
+        function buttonClicked(){
+            const inputTyped = document.getElementById("input-type");
+            const content = inputTyped.value;
+
+            if (content.trim() !== "") {
+                const newElement = document.createElement("div");
+
+                const paraElement = document.createElement("p");
+                paraElement.innerHTML = content;
+                newElement.append(paraElement);
+
+                const newButton = document.createElement("button");
+                newButton.value = "delete";
+                newButton.innerHTML = "delete";
+                
+                newButton.addEventListener("click", function() {
+                    newElement.remove();
+                });
+
+                newElement.appendChild(newButton);
+
+                inputTyped.before(newElement);
+                newElement.classList.add("div");
+
+               
+                inputTyped.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
